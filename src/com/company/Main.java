@@ -8,14 +8,36 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Principal: ");
-        int  principal = Integer.parseInt(scanner.nextLine());
-        System.out.print("Annual Interest Rate: ");
-        Float  annualInterestRate = Float.parseFloat(scanner.nextLine());
-        System.out.print("Period (Years) ");
-        int  periodInYear = Integer.parseInt(scanner.nextLine());
-        System.out.print("mortgage: ");
-        System.out.println(getMortgage(principal,annualInterestRate,periodInYear));
+        while(true){
+            System.out.print("Principal:(1k$-1M$): >> ");
+            int  principal = Integer.parseInt(scanner.nextLine());
+            if (!(principal >= 1000 && principal <=1_000_000)) {
+                System.out.println("You should Enter between 1K and 1M $");
+                continue;
+            }
+            while(true){
+                System.out.print("Annual Interest Rate: ");
+                Float  annualInterestRate = Float.parseFloat(scanner.nextLine());
+                if(!(annualInterestRate >0 && annualInterestRate<30 )){
+                    System.out.println("You should Enter between  0 and 30 % ");
+                    continue;
+                }
+                System.out.print("Period (Years) ");
+                int  periodInYear = Integer.parseInt(scanner.nextLine());
+                System.out.print("mortgage: ");
+                System.out.println(getMortgage(principal,annualInterestRate,periodInYear));
+                break;
+
+            }
+
+        }
+
+
+
+
+
+
+
 
 
     }
